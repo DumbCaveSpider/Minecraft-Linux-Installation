@@ -14,8 +14,8 @@ fi
 
 # check for curl
 if ! [ -x "$(command -v curl)" ]; then
-  echo "* curl is required in order for this script to work."
-  echo "* install using apt (Debian and derivatives) or yum/dnf (CentOS)"
+  echo "> curl is required in order for this script to work."
+  echo "> Install using apt (Debian and derivatives) or yum/dnf (CentOS)"
   exit 1
 fi
 
@@ -28,10 +28,10 @@ CONFIGURE_FIREWALL_CMD=false
 echo "# Minecraft Linux Installation Script by DumbCaveSpider (ArcticWoof#6900) #"
 
 # options
-echo ""
+echo "> What would you like to setup? <"
 echo "[1] Setup Minecraft Java"
 echo "[2] Setup Minecraft Bedrock"
-read -p "Please enter a number: " choice
+read -p "> Please enter a number: " choice
 
 # no input
 if [ -z $choice ] then
@@ -39,7 +39,6 @@ if [ -z $choice ] then
   
 elif [ $choice == "1" ] then
   echo "Installing MoreServerInfo..."
-  bash <(curl -sSL https://raw.githubusercontent.com/finnie2006/PteroFreeStuffinstaller/main/resources/MoreServerInfo/install.sh)
   
 else
   echo "> Invaild Input! Please try again!"
