@@ -66,3 +66,4 @@ while [ "$done" == false ]; do
   read -r action
 
   [ -z "$action" ] && error "Input is required" && continue
+  done
