@@ -4,7 +4,7 @@ SCRIPT_VERSION="v1.0"
 
 # exit with error status code if user is not root
 if [[ $EUID -ne 0 ]]; then
-  echo "* User MUST be under a root user. (sudo -s)." 1>&2
+  echo "* This script must be executed with root privileges (sudo)." 1>&2
   exit 1
 fi
 
@@ -68,7 +68,7 @@ while [ "$done" == false ]; do
   read -r action
 
   [ -z "$action" ] && error "Input is required" && continue
-  
+
   valid_input=("$(for ((i = 0; i <= ${#actions[@]} - 1; i += 1)); do echo "${i}"; done)")
   [[ ! " ${valid_input[*]} " =~ ${action} ]] && error "Invalid option"
   [[ " ${valid_input[*]} " =~ ${action} ]] && done=true && eval "${actions[$action]}"
