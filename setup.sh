@@ -39,12 +39,12 @@ output "This script is ONLY used for owned Virtual Machine! NOT SHELL MACHINE!"
 
 output
 
-vanilla() {
-  bash <(curl -s https://raw.githubusercontent.com/DumbCaveSpider/Minecraft-Linux-Installation/main/JavaInstallScripts/VanillaInstall)
+java() {
+  bash <(curl -s https://raw.githubusercontent.com/DumbCaveSpider/Minecraft-Linux-Installation/main/java.sh)
 }
 
-paper() {
-  bash <(curl -s https://raw.githubusercontent.com/DumbCaveSpider/Minecraft-Linux-Installation/main/JavaInstallScripts/VanillaInstall)
+bedrock() {
+  bash <(curl -s https://raw.githubusercontent.com/DumbCaveSpider/Minecraft-Linux-Installation/main/bedrock.sh)
 }
 
 while [ "$done" == false ]; do
@@ -54,8 +54,8 @@ while [ "$done" == false ]; do
   )
 
   actions=(
-    "vanilla"
-    "paper"
+    "java"
+    "bedrock"
   )
 
   output "Numeber:"
