@@ -66,4 +66,8 @@ while [ "$done" == false ]; do
   read -r action
 
   [ -z "$action" ] && error "Input is required" && continue
-  done
+  
+  valid_input=("$(for ((i = 0; i <= ${#actions[@]} - 1; i += 1)); do echo "${i}"; done)")
+  [[ ! " ${valid_input[*]} " =~ ${action} ]] && error "Invalid option"
+  [[ " ${valid_input[*]} " =~ ${action} ]] && done=true && eval "${actions[$action]}"
+done
