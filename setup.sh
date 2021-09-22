@@ -1,3 +1,5 @@
+set -e
+
 SCRIPT_VERSION="v1.0"
 
 # exit with error status code if user is not root
